@@ -4,7 +4,6 @@ import { uploadOnCloudinary } from "../utils/cloudnary.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { User } from "../models/user.model.js";
 
-
 const GenerateAccessAndRefreshTokens = async (userid) => {
   try {
    const user =  await User.findById(userid);
@@ -73,11 +72,11 @@ const registerUser = asyncHandler(async (req, res) => {
   
   const createdUser = await User.findById(user._id).select("-password -refreshToken");
 
-      if (!createdUser) {
-        throw new ApiError(500, "somthing went wrong while user was creating");
-      } else {
-        console.log("user was created");
-      }
+      // if (!createdUser) {
+      //   throw new ApiError(500, "somthing went wrong while user was creating");
+      // } else {
+      //   console.log("user was created");
+      // }
 
   return res
     .status(201).json(
